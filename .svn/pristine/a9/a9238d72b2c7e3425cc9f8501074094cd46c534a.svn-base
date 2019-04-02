@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="html1">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css" />
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="FlexBlock">
+	<script src="./js/logo.js">	</script>
+	<div class="header">
+		<div class="HeaderMain">
+			<img src="./img/logo.png" alt="">
+		</div>
+
+	</div>
+	<!-- 登录框 -->
+
+	<div class="main  ">
+		<div class="CenterCon FlexBlock">
+			<div class="flex1 ">
+				<div class="ThemeBox"></div>
+			</div>
+			<div class="LoginContent ">
+				<div class="LoginArea">
+					<div class="LoginName">
+						<span class="LoginTitle">账户登录</span>
+					</div>
+					<div class="UserDiv">
+						<p class="InputP user ">
+							<input type="text" id="userName" name="userName" placeholder="请输入您的用户名" />
+						</p>
+						<p class="HelpBlock "></p>
+					</div>
+					<div class="PasswordDiv">
+						<p class="InputP password">
+							<input type="text" id="password" name="password" placeholder="请输入您的密码" />
+						</p>
+						<p class="HelpBlock"></p>
+					</div>
+					<div class="RadioDiv">
+						<p class=" CheckboxP">
+							<span class="CheckBox" ></span>
+							<span class="RemeberPass"> 记住密码</span>
+						</p>
+					</div>
+					<div class="LoginBtn">
+						<button class="login" id="login">登录</button>
+					</div>
+					
+				</div>
+				<div class="SuggestDiv">建议IE10+/chrome/firefox/360极速浏览器</div> 
+
+			</div>
+		</div>
+
+
+	</div>
+	<div class="footer ">
+		<p class="FooterText">技术支持：北京思路创新科技信息有限公司</p>
+	</div>
+	
+</body>
+
+</html>
