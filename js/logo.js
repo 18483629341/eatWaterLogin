@@ -1,5 +1,5 @@
 //前端验证
-let postObj = {
+var postObj = {
 	user: "",
 	password: "",
 	isSave: null
@@ -23,20 +23,20 @@ $('body').on('click', '#login', function () {
 function valid() { //格式验证，以及获取输入框信息
 
 	/*   获取输入框信息   */
-	let user = trim($('input[name="userName"]').val()) || null;
-	let password = trim($('input[name="password"]').val()) || null;
-	let isSave = $('.checkBox').hasClass('active');
-	let userFlag = true; //表示用户名的前端验证是否通过
-	let passFlag = true; //表示密码的前端验证是否通过
+	var user = trim($('input[name="userName"]').val()) || null;
+	var password = trim($('input[name="password"]').val()) || null;
+	var isSave = $('.CheckBox').hasClass('active');
+	var userFlag = true; //表示用户名的前端验证是否通过
+	var passFlag = true; //表示密码的前端验证是否通过
 	/*   前端  格式验证用户名   */
 	if (!user) {
 		$('.user').addClass('error');
-		$('.user').siblings('.helpBolck').addClass('error');
-		$('.user').siblings('.helpBolck').html('输入的用户名不能为空哦！');
+		$('.user').siblings('.HelpBlock').addClass('error');
+		$('.user').siblings('.HelpBlock').html('输入的用户名不能为空哦！');
 		userFlag = false;
 	} else {
 		$('.user').removeClass('error');
-		$('.user').siblings('.helpBolck').removeClass('error');
+		$('.user').siblings('.HelpBlock').removeClass('error');
 		userFlag = true;
 		postObj.user = user;
 	}
@@ -44,24 +44,27 @@ function valid() { //格式验证，以及获取输入框信息
 	/*   前端验证密码   */
 	if (!password) {
 		$('.password').addClass('error');
-		$('.password').siblings('.helpBolck').addClass('error');
-		$('.password').siblings('.helpBolck').html('输入的密码不能为空哦！');
+		$('.password').siblings('.HelpBlock').addClass('error');
+		$('.password').siblings('.HelpBlock').html('输入的密码不能为空哦！');
 		passFlag = false;
 	} else {
 		$('.password').removeClass('error');
-		$('.password').siblings('.helpBolck').removeClass('error');
+		$('.password').siblings('.HelpBlock').removeClass('error');
 		passFlag = true;
 		postObj.password = password;
 	}
 	postObj.isSave = isSave;
 	return (userFlag && passFlag);
 }
-$('body').on('click', '.checkBox', function () {
+/*  单击仿的单选框 */
+$('body').on('click', '.CheckBox', function () {
 	$(this).toggleClass('active');
 })
-$('body').on('focus', 'input', function () {
+
+/* 当鼠标移入inputP则，去除报错相关样式*/
+$('body').on('mouseover', '.InputP', function () {
 	$(this).removeClass('error');
-	$(this).parent('.inputP').siblings('.helpBolck').removeClass('error');
+	$(this).siblings('.HelpBlock').removeClass('error');
 })
 /** 去除首尾的空格 **/
 function trim(str) {
@@ -99,28 +102,21 @@ function autoFit() {
 function resize() {
 	var winratio = $(window).width() / 1920;
 	var height = $(window).height();
-    if(winratio<1){
-		$('.header').css({
-			height:120*winratio + "px"
-		});
-		$('.headerMain').css({
+    if(winratio<1){//只有宽度小于1920的，才需要js做自适应
+		$('.HeaderMain').css({
 			transform: "scale(" + winratio + ")",
-			transformOrigin: "left top",
-			height:120*winratio + "px"
+			transformOrigin: "left top"
 		});
-		
-	
-		$('.login_content').css({
+		$('.LoginContent').css({
 		  transform: "scale("+winratio+")",
 		  transformOrigin: "right center"
 		});
-		$('.themeBox').css({
+		$('.ThemeBox').css({
 			transform: "scale("+winratio+")",
 			transformOrigin: "left center"
 		});
 	}
 	// else{
-	// 	//这里有点问题
 	// 	$('.html1').css({
 	// 		transform: "scale(" + winratio + ")",
 	// 		transformOrigin: "left top"
