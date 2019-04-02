@@ -33,6 +33,7 @@ body {
   min-width: 1366px;
   height: 100%;
   box-sizing: content-box;
+  overflow: hidden;
 }
 p,
 img {
